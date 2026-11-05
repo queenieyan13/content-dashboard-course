@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mei's Content Dashboard</title>
+<style>
+  :root {
+    --bg: #FAF6EE; --card: #FFFFFF; --ink: #2B2B2B; --muted: #6B6B66;
+    --sage: #7A9E7E; --sage-dark: #557A5A; --sage-soft: #E6EFE5;
+    --line: #E7E1D5; --star: #E2A93B; --danger: #C0564B;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  header.banner { background: var(--sage-dark); color: #fff; border-radius: 16px; padding: 24px; margin-bottom: 16px; }
+  header.banner h1 { margin: 0 0 6px; font-size: 26px; }
+  header.banner p { margin: 0; font-size: 17px; opacity: .95; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  nav a { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px;
+    color: var(--ink); text-decoration: none; font-size: 13px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
+  h2 { margin: 0 0 12px; font-size: 19px; }
+  h3 { margin: 0 0 6px; font-size: 15px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: #fff; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .pill { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--sage-soft); color: var(--sage-dark); margin-right: 4px; }
+  .bar { height: 12px; background: var(--sage-soft); border-radius: 999px; overflow: hidden; margin: 8px 0; }
+  .bar > span { display: block; height: 100%; background: var(--sage); }
+  form.inline { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 12px; }
+  input, select, textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; font: inherit; background: #fff; color: var(--ink); }
+  textarea { min-height: 70px; }
+  button { font: inherit; border: 0; border-radius: 8px; padding: 8px 12px; background: var(--sage); color: #fff; cursor: pointer; }
+  button.ghost { background: transparent; color: var(--sage-dark); border: 1px solid var(--sage); }
+  button.small { padding: 4px 8px; font-size: 12px; }
+  button.danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
+  ul.list { list-style: none; margin: 0; padding: 0; }
+  ul.list li { display: flex; gap: 8px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .star { background: none; color: var(--star); font-size: 20px; padding: 0 4px; }
+  .hooks label { display: flex; gap: 8px; align-items: flex-start; padding: 6px; border-radius: 8px; }
+  .hooks label.chosen { background: var(--sage-soft); }
+  .hooks input { width: auto; margin-top: 4px; }
+  pre.script { white-space: pre-wrap; font: inherit; background: var(--bg); padding: 10px; border-radius: 8px; margin: 8px 0; }
+  .kpis { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); margin-bottom: 12px; }
+  .kpi { background: var(--sage-soft); border-radius: 12px; padding: 12px; }
+  .kpi b { display: block; font-size: 22px; }
+  .table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .table th, .table td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+  .scroll { overflow-x: auto; }
+  .toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff;
+    padding: 10px 16px; border-radius: 999px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+  details summary { cursor: pointer; color: var(--sage-dark); margin: 8px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="banner">
+    <h1>Mei's Content Dashboard · Money with Mei</h1>
+    <p>"I help young working women stop living paycheck to paycheck through <b>The 3-Jar Money Reset</b>, because I paid off RM40k of debt while working at a bank."</p>
+  </header>
+
+  <nav>
+    <a href="#about">🪪 About</a><a href="#positioning">🎯 Positioning</a><a href="#pillars">🧱 Pillars</a>
+    <a href="#style">🎨 Style</a><a href="#ideas">💡 Ideas</a><a href="#scripts">✍️ Scripts</a>
+    <a href="#planner">📅 Planner</a><a href="#tracker">📊 Tracker</a>
+  </nav>
+
+  <section id="about">
+    <h2>🪪 About Me</h2>
+    <div class="grid">
+      <div class="card"><h3>Base & language</h3>Kuala Lumpur · English & 中文<br><span class="muted">Instagram, 小红书</span></div>
+      <div class="card"><h3>Work</h3>Independent financial coach (3 yrs)<br><span class="muted">8 yrs retail banking before</span></div>
+      <div class="card"><h3>Personality</h3>Patient · practical · funny<br><span class="muted">Hiking, café-hopping</span></div>
+      <div class="card" id="goalCard"></div>
+    </div>
+  </section>
+
+  <section id="positioning">
+    <h2>🎯 My Positioning</h2>
+    <div class="grid">
+      <div class="card"><h3>Method</h3>The 3-Jar Money Reset<br><span class="muted">Payday split: Save · Grow · Enjoy</span></div>
+      <div class="card"><h3>Ideal viewer</h3>Jess, 28, marketing exec, RM5k salary, RM12k credit card debt, too embarrassed to ask for help.</div>
+      <div class="card"><h3>My story</h3>RM40k in debt at 25 while working at a bank. Built the 3-jar system. Debt-free in 3 years.</div>
+      <div class="card"><h3>Proof</h3>120+ clients · avg +RM800 saved/month in 3 months · licensed financial planner</div>
+      <div class="card"><h3>Brand</h3>Sage green + cream · friendly big sister<br><span class="muted">Never: fear-selling, get-rich-quick, pushing products</span></div>
+    </div>
+  </section>
+
+  <section id="pillars">
+    <h2>🧱 Content Pillars</h2>
+    <div class="grid" id="pillarCards"></div>
+  </section>
+
+  <section id="style">
+    <h2>🎨 Style Guide</h2>
+    <div class="grid">
+      <div class="card"><h3>References</h3>Whiteboard explainers · real numbers on screen · talks to camera like a friend</div>
+      <div class="card"><h3>Formats</h3>Talking head · carousels</div>
+      <div class="card"><h3>Tone</h3>Raw & honest · warm · a bit funny</div>
+      <div class="card"><h3>Never do</h3>Flexing luxury · fake urgency · "you're poor because you buy coffee"</div>
+    </div>
+  </section>
+
+  <section id="ideas">
+    <h2>💡 Idea Bank</h2>
+    <form class="inline" id="ideaForm">
+      <input name="title" placeholder="New idea title" required>
+      <select name="pillar"></select>
+      <select name="format"><option>Talking head</option><option>Carousel</option></select>
+      <button>Add idea</button>
+    </form>
+    <ul class="list" id="ideaList"></ul>
+  </section>
+
+  <section id="scripts">
+    <h2>✍️ Script Studio</h2>
+    <p class="muted">Structure: 3 Hooks → Body → Summary + CTA. Tick the hook you'll film.</p>
+    <div id="scriptList"></div>
+    <details>
+      <summary>+ Paste a script from the chat</summary>
+      <form id="scriptForm" style="display:grid;gap:8px">
+        <input name="title" placeholder="Script title" required>
+        <select name="pillar"></select>
+        <input name="h1" placeholder="H1 · Pain / Question" required>
+        <input name="h2" placeholder="H2 · Bold claim / Myth-buster" required>
+        <input name="h3" placeholder="H3 · Story / Result" required>
+        <textarea name="body" placeholder="Body" required></textarea>
+        <textarea name="cta" placeholder="Summary + CTA" required></textarea>
+        <input name="caption" placeholder="Caption (optional)">
+        <button>Save script</button>
+      </form>
+    </details>
+  </section>
+
+  <section id="planner">
+    <h2>📅 Content Planner</h2>
+    <div class="scroll"><table class="table">
+      <thead><tr><th>Title</th><th>Pillar</th><th>Hook</th><th>Platform</th><th>Date</th><th>Status</th><th></th></tr></thead>
+      <tbody id="planBody"></tbody>
+    </table></div>
+  </section>
+
+  <section id="tracker">
+    <h2>📊 Performance Tracker</h2>
+    <div class="kpis" id="kpis"></div>
+    <form class="inline" id="resultForm">
+      <select name="post" required></select>
+      <input name="views" type="number" min="0" placeholder="Views" required>
+      <input name="likes" type="number" min="0" placeholder="Likes" required>
+      <input name="comments" type="number" min="0" placeholder="Comments" required>
+      <input name="saves" type="number" min="0" placeholder="Saves" required>
+      <input name="followers" type="number" min="0" placeholder="New followers" required>
+      <button>Save results</button>
+    </form>
+    <div class="grid">
+      <div class="card"><h3>Views per post</h3><div id="chart"></div></div>
+      <div class="card"><h3>What's working</h3><div id="insights"></div></div>
+    </div>
+    <p style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="ghost" id="exportBtn">Export to CSV</button>
+      <button class="danger" id="clearSamples">Delete sample entries</button>
+    </p>
+  </section>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const PILLARS = ["Debt-Free Basics", "Grow Your Money", "Guilt-Free Spending"];
+const HOOK_TYPES = ["H1 · Pain / Question", "H2 · Bold claim", "H3 · Story / Result"];
+const KEY = "mwm-dashboard-v1";
+
+// Built-in data from the conversation. Typed-in data lives in localStorage and is never overwritten.
+const SEED = {
+  goal: { label: "Instagram followers", current: 1200, target: 5000 },
+  ideas: [
+    { id: "i1", title: "Why I was RM40k in debt while working at a bank", pillar: 0, format: "Talking head", starred: true },
+    { id: "i2", title: "The 3-Jar split on a RM4,000 salary", pillar: 0, format: "Carousel", starred: true },
+    { id: "i3", title: "Credit card minimum payment trap, explained in 60s", pillar: 0, format: "Talking head", starred: false },
+    { id: "i4", title: "Emergency fund: how much is enough in KL?", pillar: 0, format: "Talking head", starred: false },
+    { id: "i5", title: "Start investing with RM100: my first 3 steps", pillar: 1, format: "Talking head", starred: true },
+    { id: "i6", title: "ASB, EPF, unit trust: which first?", pillar: 1, format: "Carousel", starred: false },
+    { id: "i7", title: "What my bank colleagues never told customers", pillar: 1, format: "Talking head", starred: false },
+    { id: "i8", title: "Guilt-free bubble tea: how the Enjoy jar works", pillar: 2, format: "Talking head", starred: false },
+    { id: "i9", title: "My café budget for a month (real numbers)", pillar: 2, format: "Carousel", starred: false },
+    { id: "i10", title: "Stop feeling guilty about spending on yourself", pillar: 2, format: "Talking head", starred: false }
+  ],
+  scripts: [{
+    id: "s1", title: "Why I was RM40k in debt while working at a bank", pillar: 0, chosen: 2,
+    hooks: ["Earning RM5k but broke by the 20th? Same. Here's why.",
+            "Your salary isn't the problem. Your payday is.",
+            "I worked at a bank and still owed RM40,000."],
+    body: "At 25, I was helping customers with their loans…\nwhile hiding my own RM40k credit card bill.\n[On-screen text: RM40,000 debt · age 25]\nThe problem wasn't how much I earned.\nIt was that my salary had no job.\nSo I gave it three.\n[On-screen text: JAR 1 · SAVE]\nFirst jar: Save. Debt and emergency money, paid first.\n[On-screen text: JAR 2 · GROW]\nSecond jar: Grow. Even RM100 into investing.\n[On-screen text: JAR 3 · ENJOY]\nThird jar: Enjoy. Yes, guilt-free bubble tea.\nI split it the day my salary comes in, before I can touch it.\nThree years later, debt gone.\nMy clients save about RM800 more a month doing this.",
+    cta: "Give your salary three jobs on payday: save, grow, enjoy.\nComment \"JAR\" and I'll send you my 3-jar template.",
+    caption: "Worked at a bank. Still had RM40k debt. 🙃 The fix wasn't earning more. Comment \"JAR\" for my template."
+  }],
+  posts: [
+    { id: "p-s1", scriptId: "s1", title: "Why I was RM40k in debt while working at a bank", pillar: 0, hook: 2, platform: "Instagram", date: "2026-11-12", status: "Script", results: null },
+    { id: "sample1", title: "Sample · 3 money mistakes in your 20s", pillar: 0, hook: 0, platform: "Instagram", date: "2026-10-20", status: "Posted", sample: true,
+      results: { views: 4200, likes: 310, comments: 22, saves: 140, followers: 35 } },
+    { id: "sample2", title: "Sample · Investing with RM100", pillar: 1, hook: 1, platform: "小红书", date: "2026-10-25", status: "Posted", sample: true,
+      results: { views: 2600, likes: 180, comments: 15, saves: 210, followers: 18 } },
+    { id: "sample3", title: "Sample · My guilt-free café budget", pillar: 2, hook: 2, platform: "Instagram", date: "2026-10-30", status: "Posted", sample: true,
+      results: { views: 6900, likes: 520, comments: 48, saves: 95, followers: 61 } }
+  ]
+};
+
+function load() {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+  if (!saved) return structuredClone(SEED);
+  // Merge: add any new built-in items by id, keep everything the student typed.
+  for (const k of ["ideas", "scripts", "posts"]) {
+    const ids = new Set(saved[k].map(x => x.id));
+    for (const item of SEED[k]) if (!ids.has(item.id) && !(saved.removed || []).includes(item.id)) saved[k].push(structuredClone(item));
+  }
+  return saved;
+}
+let state = load();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+function forget(id) { (state.removed = state.removed || []).push(id); }
+const uid = () => Math.random().toString(36).slice(2, 9);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2200);
+}
+async function copy(text, msg) {
+  try { await navigator.clipboard.writeText(text); }
+  catch (e) {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand("copy"); ta.remove();
+  }
+  toast(msg);
+}
+const pillarOptions = () => PILLARS.map((p, i) => `<option value="${i}">${p}</option>`).join("");
+
+function renderGoal() {
+  const g = state.goal, pct = Math.min(100, Math.round(g.current / g.target * 100));
+  document.getElementById("goalCard").innerHTML = `<h3>6-month goal</h3>
+    ${g.current.toLocaleString()} / ${g.target.toLocaleString()} ${esc(g.label)}
+    <div class="bar"><span style="width:${pct}%"></span></div>
+    <span class="muted">${pct}% · also: 10 clients from content</span>
+    <form id="goalForm" style="display:flex;gap:6px;margin-top:6px">
+      <input name="current" type="number" min="0" value="${g.current}" aria-label="Current followers">
+      <button class="small">Update</button></form>`;
+  document.getElementById("goalForm").onsubmit = e => {
+    e.preventDefault(); state.goal.current = Number(e.target.current.value) || 0; save(); renderGoal();
+  };
+}
+
+function renderPillars() {
+  document.getElementById("pillarCards").innerHTML = PILLARS.map((p, i) => {
+    const n = state.posts.filter(x => x.pillar === i && !x.sample).length;
+    const ideas = state.ideas.filter(x => x.pillar === i).length;
+    return `<div class="card"><span class="pill">Pillar ${i + 1}</span><h3>${p}</h3>
+      <span class="muted">${n} post${n === 1 ? "" : "s"} planned · ${ideas} ideas</span></div>`;
+  }).join("");
+}
+
+function renderIdeas() {
+  const list = [...state.ideas].sort((a, b) => b.starred - a.starred);
+  document.getElementById("ideaList").innerHTML = list.map(i => `<li>
+    <span><button class="star" data-act="star" data-id="${i.id}" aria-label="Star">${i.starred ? "★" : "☆"}</button>
+      ${esc(i.title)} <span class="pill">${PILLARS[i.pillar]}</span><span class="muted">${esc(i.format)}</span></span>
+    <span style="display:flex;gap:6px">
+      <button class="small" data-act="prompt" data-id="${i.id}">Write script</button>
+      <button class="small ghost" data-act="plan" data-id="${i.id}">Move to Planner</button>
+      <button class="small danger" data-act="delIdea" data-id="${i.id}">Delete</button></span></li>`).join("");
+}
+
+function renderScripts() {
+  document.getElementById("scriptList").innerHTML = state.scripts.map(s => `<div class="card" style="margin-bottom:12px">
+    <span class="pill">${PILLARS[s.pillar]}</span><h3>${esc(s.title)}</h3>
+    <div class="hooks">${s.hooks.map((h, n) => `<label class="${s.chosen === n ? "chosen" : ""}">
+      <input type="radio" name="hook-${s.id}" data-act="hook" data-id="${s.id}" data-n="${n}" ${s.chosen === n ? "checked" : ""}>
+      <span><b>${HOOK_TYPES[n]}</b><br>${esc(h)}</span></label>`).join("")}</div>
+    <details><summary>Body + Summary CTA</summary>
+      <pre class="script">${esc(s.body)}</pre><pre class="script"><b>Summary + CTA</b>\n${esc(s.cta)}</pre>
+      ${s.caption ? `<p class="muted">Caption: ${esc(s.caption)}</p>` : ""}</details>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <button class="small" data-act="copyScript" data-id="${s.id}">Copy script</button>
+      <button class="small danger" data-act="delScript" data-id="${s.id}">Delete</button></div></div>`).join("")
+    || `<p class="muted">No scripts yet. Click "Write script" on an idea.</p>`;
+}
+
+const STATUSES = ["Idea", "Script", "Filmed", "Posted"];
+function renderPlanner() {
+  const rows = [...state.posts].sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  document.getElementById("planBody").innerHTML = rows.map(p => `<tr>
+    <td>${esc(p.title)}</td><td>${PILLARS[p.pillar]}</td>
+    <td>${p.hook == null ? "–" : "H" + (p.hook + 1)}</td>
+    <td><select data-act="platform" data-id="${p.id}">${["Instagram", "小红书", "TikTok"].map(x => `<option ${p.platform === x ? "selected" : ""}>${x}</option>`).join("")}</select></td>
+    <td><input type="date" value="${p.date || ""}" data-act="date" data-id="${p.id}"></td>
+    <td><select data-act="status" data-id="${p.id}">${STATUSES.map(x => `<option ${p.status === x ? "selected" : ""}>${x}</option>`).join("")}</select></td>
+    <td><button class="small danger" data-act="delPost" data-id="${p.id}">✕</button></td></tr>`).join("");
+}
+
+function renderTracker() {
+  const posted = state.posts.filter(p => p.status === "Posted");
+  document.querySelector("#resultForm [name=post]").innerHTML =
+    posted.length ? posted.map(p => `<option value="${p.id}">${esc(p.title)}</option>`).join("") : `<option value="">Mark a post as "Posted" first</option>`;
+  const done = posted.filter(p => p.results);
+  const sum = k => done.reduce((a, p) => a + p.results[k], 0);
+  document.getElementById("kpis").innerHTML = [["Views", "views"], ["Likes", "likes"], ["Comments", "comments"], ["Saves", "saves"], ["New followers", "followers"]]
+    .map(([l, k]) => `<div class="kpi"><span class="muted">${l}</span><b>${sum(k).toLocaleString()}</b></div>`).join("");
+
+  const max = Math.max(1, ...done.map(p => p.results.views));
+  const sorted = [...done].sort((a, b) => a.date.localeCompare(b.date));
+  document.getElementById("chart").innerHTML = sorted.length ? sorted.map(p => `<div style="margin:6px 0">
+      <div class="muted">${esc(p.date)} · ${esc(p.title)}</div>
+      <div class="bar" style="height:16px"><span style="width:${p.results.views / max * 100}%"></span></div>
+      <b>${p.results.views.toLocaleString()}</b></div>`).join("") : `<p class="muted">No results yet.</p>`;
+
+  const best = (keyFn, labels) => {
+    const groups = {};
+    for (const p of done) { const k = keyFn(p); if (k == null) continue; (groups[k] = groups[k] || []).push(p.results.views); }
+    const avg = Object.entries(groups).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
+    return avg.length ? `${labels[avg[0][0]]} <span class="muted">(avg ${Math.round(avg[0][1]).toLocaleString()} views)</span>` : "–";
+  };
+  document.getElementById("insights").innerHTML = `
+    <p>🏆 Best pillar: <b>${best(p => p.pillar, PILLARS)}</b></p>
+    <p>🎣 Best hook type: <b>${best(p => p.hook, HOOK_TYPES)}</b></p>
+    <p class="muted">Based on ${done.length} post${done.length === 1 ? "" : "s"} with results.</p>`;
+}
+
+function render() {
+  document.querySelectorAll("select[name=pillar]").forEach(s => { const v = s.value; s.innerHTML = pillarOptions(); if (v) s.value = v; });
+  renderGoal(); renderPillars(); renderIdeas(); renderScripts(); renderPlanner(); renderTracker();
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act]"); if (!b || b.tagName === "SELECT" || b.tagName === "INPUT") return;
+  const id = b.dataset.id, act = b.dataset.act;
+  const idea = state.ideas.find(x => x.id === id), script = state.scripts.find(x => x.id === id);
+  if (act === "star") idea.starred = !idea.starred;
+  if (act === "delIdea") { state.ideas = state.ideas.filter(x => x.id !== id); forget(id); }
+  if (act === "plan") {
+    state.posts.push({ id: uid(), title: idea.title, pillar: idea.pillar, hook: null, platform: "Instagram", date: "", status: "Idea", results: null });
+    toast("Added to Planner");
+  }
+  if (act === "prompt") {
+    copy(`Write a talking-head script for my idea: "${idea.title}" (pillar: ${PILLARS[idea.pillar]}). Use my script format: 3 hooks, body, summary + CTA, caption. Then save it to my Script Studio.`,
+      "Prompt copied. Paste it into the chat.");
+    return;
+  }
+  if (act === "copyScript") {
+    const h = script.chosen == null ? script.hooks.join("\n") : script.hooks[script.chosen];
+    copy(`${h}\n\n${script.body}\n\n${script.cta}`, "Script copied");
+    return;
+  }
+  if (act === "delScript") { state.scripts = state.scripts.filter(x => x.id !== id); forget(id); }
+  if (act === "delPost") { state.posts = state.posts.filter(x => x.id !== id); forget(id); }
+  save(); render();
+});
+
+document.addEventListener("change", e => {
+  const el = e.target, id = el.dataset.id, act = el.dataset.act; if (!act) return;
+  if (act === "hook") {
+    const s = state.scripts.find(x => x.id === id); s.chosen = Number(el.dataset.n);
+    state.posts.filter(p => p.scriptId === id).forEach(p => p.hook = s.chosen);
+  }
+  const p = state.posts.find(x => x.id === id);
+  if (act === "status") p.status = el.value;
+  if (act === "platform") p.platform = el.value;
+  if (act === "date") p.date = el.value;
+  save(); render();
+});
+
+document.getElementById("ideaForm").onsubmit = e => {
+  e.preventDefault(); const f = e.target;
+  state.ideas.push({ id: uid(), title: f.title.value.trim(), pillar: Number(f.pillar.value), format: f.format.value, starred: false });
+  f.reset(); save(); render(); toast("Idea added");
+};
+document.getElementById("scriptForm").onsubmit = e => {
+  e.preventDefault(); const f = e.target, id = uid(), pillar = Number(f.pillar.value);
+  state.scripts.push({ id, title: f.title.value.trim(), pillar, chosen: null, hooks: [f.h1.value, f.h2.value, f.h3.value],
+    body: f.body.value, cta: f.cta.value, caption: f.caption.value });
+  state.posts.push({ id: uid(), scriptId: id, title: f.title.value.trim(), pillar, hook: null, platform: "Instagram", date: "", status: "Script", results: null });
+  f.reset(); save(); render(); toast("Script saved and added to Planner");
+};
+document.getElementById("resultForm").onsubmit = e => {
+  e.preventDefault(); const f = e.target, p = state.posts.find(x => x.id === f.post.value); if (!p) return;
+  if (!p.date) p.date = new Date().toISOString().slice(0, 10);
+  p.results = Object.fromEntries(["views", "likes", "comments", "saves", "followers"].map(k => [k, Number(f[k].value) || 0]));
+  f.reset(); save(); render(); toast("Results saved");
+};
+document.getElementById("clearSamples").onclick = () => {
+  state.posts.filter(p => p.sample).forEach(p => forget(p.id));
+  state.posts = state.posts.filter(p => !p.sample); save(); render(); toast("Samples deleted");
+};
+document.getElementById("exportBtn").onclick = () => {
+  const head = ["title", "pillar", "hook", "platform", "date", "status", "views", "likes", "comments", "saves", "followers"];
+  const rows = state.posts.map(p => [p.title, PILLARS[p.pillar], p.hook == null ? "" : "H" + (p.hook + 1), p.platform, p.date, p.status,
+    ...(p.results ? ["views", "likes", "comments", "saves", "followers"].map(k => p.results[k]) : ["", "", "", "", ""])]);
+  const csv = [head, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = "content-dashboard.csv"; a.click();
+};
+
+render();
+</script>
+</body>
+</html>
