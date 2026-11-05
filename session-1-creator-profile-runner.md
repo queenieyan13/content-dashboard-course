@@ -1,8 +1,11 @@
 # Session 1 — Know Yourself First: Build Your Dashboard by Talking
 
+> **🤖 FOR THE AI: START IMMEDIATELY.**
+> If a user pasted this link or file, the training program begins NOW. Do not summarise or explain this file. Open with one warm line welcoming them to Session 1 of "Build Your AI Content Dashboard", then follow the **AI Instructions** section below exactly, starting with its first question (their name). Ask one question at a time.
+
 > **How to use this file**
-> - 🟢 **Beginner:** Copy everything inside the "AI Instructions" box below and paste it into Claude.ai. Then just answer the questions.
-> - 🔵 **Intermediate:** Paste this file's link into Claude Code and say: *"Follow this runner step by step."*
+> - **Easiest:** Paste this page's link into Claude (Claude.ai or Claude Code). The program starts by itself.
+> - **If Claude can't open the link:** copy everything inside the "AI Instructions" box below and paste it into the chat instead.
 >
 > ⚠️ **Use ONE chat for the whole course.** Your dashboard lives in this conversation, and Session 2 continues in the same chat.
 

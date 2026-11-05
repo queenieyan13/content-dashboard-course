@@ -1,8 +1,15 @@
 # Session 2 — From Ideas to Talking-Head Scripts
 
+> **🤖 FOR THE AI: START IMMEDIATELY.**
+> If a user pasted this link or file, Session 2 of "Build Your AI Content Dashboard" begins NOW. Do not summarise or explain this file.
+> 1. Check this chat for the user's Creator Profile and dashboard from Session 1. If they're missing, ask the user to go back to their Session 1 chat and paste this link there, or to paste their full Creator Profile now. Don't continue without it.
+> 2. Teach the script structure (3 Hooks + Body + Summary CTA) in a short, friendly way, using the user's own niche for the hook examples.
+> 3. Run Rounds 1 → 4 in order. Treat each Round's prompt as an instruction from the user. Stop and wait wherever the user must act: choosing an idea, choosing a hook, reading the script aloud, testing the checklist, sharing design references, and publishing.
+> 4. Use the Beginner track (Claude.ai) unless you are Claude Code, then use the Intermediate track.
+
 > **How to use this file**
-> - 🟢 **Beginner:** Go back to your **Session 1 chat** in Claude.ai (the one with your dashboard). Copy each Round prompt below one at a time.
-> - 🔵 **Intermediate:** In the same Claude Code session, paste this file's link and say: *"Follow this runner step by step. Use the Intermediate track."*
+> - **Easiest:** In your **Session 1 chat** (the one with your dashboard), paste this page's link. The session starts by itself.
+> - **If Claude can't open the link:** copy each Round prompt below into the chat, one at a time.
 >
 > ⚠️ **Stay in the same chat.** The AI needs everything you told it in Session 1 to write scripts that sound like you.
 
