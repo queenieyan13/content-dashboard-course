@@ -110,8 +110,9 @@ PART 3 · CONTENT REFERENCE (the style you love)
 
 FINISH
 Show me the full dashboard, then say: "Your foundation is ready. In
-Session 2, we'll turn these ideas into talking-head scripts. Stay in this
-chat."
+Session 2, we'll turn these ideas into talking-head scripts. When you're
+ready, paste this link IN THIS SAME CHAT to start Session 2:
+https://github.com/queenieyan13/content-dashboard-course/blob/main/session-2-build-dashboard-runner.md"
 ```
 
 ## (copy until here)
